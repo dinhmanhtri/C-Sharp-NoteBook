@@ -1,126 +1,112 @@
-# Tổng hợp lập trình #
+# Welcome to C# Note Book!
 
-## Cách hoạt động của máy tính #
+**Tổng hợp ngắn gọn tất cả các kiến thức liên quan đến C#.Net**
 
-- Các thành phần chính của máy tính:
-  - **CPU - Central Processing Unit (Bộ xử lý trung tâm)**: Trái tim của máy tính. Bao gồm ALU (thực hiện các phép toán và logic số học cơ bản) và CU (giúp sử dụng các tài nguyên một cách hiệu quả).
-  - **Main memory (Bộ nhớ chính - RAM)**: CPU không thể truy cập ổ cứng mà chỉ có thể truy cập _main memory_. Vì vậy Program file cần được đưa từ _ổ cứng_ vào _main memory_ để CPU có thể thực thi.
-  - **Hard disk (Ổ đĩa cứng)**: Thiết bị lưu trữ của máy tính. Bao gồm **program files** và **data files**.
-  - **Input devices (Thiết bị đầu vào)**: Tất cả điều gì được nhập từ bàn phím sẽ được lưu trong _input buffer_ (bộ đệm đầu vào). Program sẽ đọc input từ _input buffer_.
-  - **Output devices (Thiết bị đầu ra)**: Tất cả đầu ra sẽ được lưu trong _output buffer_ (bộ đệm đầu ra) và sẽ được xuất ra.
-- Ngôn ngữ lập trình cấp thấp (Hệ thống có thể dễ dàng hiểu được): **Machine Language** & **Assembly Language** (hợp ngữ).
-- Ngôn ngữ lập trình cấp cao: Phụ thuộc vào người dùng.
-- Software:
-  - Tập hợp các chương trình sử dụng tài nguyên của _Hardware components_ (các thành phần phần của phần cứng).
-  - Có 2 loại phần mềm:
-    - System software (Phần mềm hệ thống): Bao gồm **Operating system** (DOS, WINDOWS, LINUX, UNIX), **System support** (compiler, interpreter, Assembler), **System development** (Linker, Loader, Editor).
-    - Application software: Bao gồm **Application-Specific** (MS OFFICE, Oracle) và **General Purpose Software** (Tally).
+## Tổng hợp về máy tính
 
-## Cách hoạt động của các chương trình máy tính #
+### Các thành phần chính của máy tính
 
-- Translators (trình dịch) là phần mềm hệ thống chuyển đổi code => nhị phân. Nó được chia thành ba loại:
-  - **Compiler** (trình biên dịch): Dịch tất source code => machine code cùng một lúc, nếu có lỗi vẫn tiếp tục thực thi, thực thi xong sẽ trả về một list các lỗi => Nhanh hơn thông dịch.
-  - **Interpreter** (trình thông dịch): Dịch từng lệnh trong source code => machine code. Nếu có một lỗi xảy ra, nó sẽ dừng quá trình biên dịch.
-  - **Assembler**: Cách làm việc giống với trình biên dịch.
-- Operating system - OS (hệ điều hành): Giao diện giữa người dùng máy tính và phần cứng máy tính.
-  - Loader (bộ nạp): Tải machine code vào bộ nhớ hệ thống.
-  - Linker (trình liên kết): Liên kết các chương trình nhỏ hơn để tạo thành một chương trình duy nhất (một chương trình dài được chia thành nhiều module).
-  
-## Các loại Applications khác nhau #
+-   **CPU - Central Processing Unit (Bộ xử lý trung tâm)**: Trái tim của máy tính. Bao gồm ALU (thực hiện các phép toán và logic số học cơ bản) và CU (giúp sử dụng các tài nguyên một cách hiệu quả).
+-   **Main memory (Bộ nhớ chính - RAM)**: CPU không thể truy cập ổ cứng mà chỉ có thể truy cập  _main memory_. Vì vậy Program file cần được đưa từ  _ổ cứng_  vào  _main memory_  để CPU có thể thực thi.
+-   **Hard disk (Ổ đĩa cứng)**: Thiết bị lưu trữ của máy tính. Bao gồm  *program files*  và  *data files*.
+-   **Input devices (Thiết bị đầu vào)**: Tất cả điều gì được nhập từ bàn phím sẽ được lưu trong  _input buffer_  (bộ đệm đầu vào). Program sẽ đọc input từ  _input buffer_. Ex: Chuột, bàn phím, ...
+-   **Output devices (Thiết bị đầu ra)**: Tất cả đầu ra sẽ được lưu trong  _output buffer_  (bộ đệm đầu ra) và sẽ được xuất ra. Ex: Loa, màn hình, ...
 
-- Có 2 loại ứng dụng:
-  - Standalone applications (ứng dụng độc lập): Các ứng dụng được cài đặt trên máy tính, luôn phụ thuộc vào hệ điều hành (Ex: Chrome, Excel, ...).
-  - Web applications (ứng dụng web): Các ứng dụng không cần cài đặt trên máy tính, độc lập với hệ điều hành, không phụ thuộc vào một hệ điều hành cụ thể (Ex: facebook.com, gmail.com, ...).
-- Operating System extensions: Window => .exe, Mac => .dmg, Linux => .rpm.
-- **Tất cả các ngôn ngữ lập trình đều là ứng dụng độc lập**.
+### Software
 
-## Các phương pháp lập trình phổ biến #
+-   Là tập hợp các chương trình sử dụng tài nguyên của  _Hardware components  (các thành phần của phần cứng)_.
+-   Có 2 loại phần mềm:
+    -   **System software (Phần mềm hệ thống):** Bao gồm  *Operating system*  (DOS, WINDOWS, LINUX, UNIX),  *System support*  (compiler, interpreter, Assembler),  *System development*  (Linker, Loader, Editor).
+    -   **Application software:** Bao gồm  *Application-Specific*  (MS OFFICE, Oracle) và  *General Purpose Software*  (Tally).
 
-### Monolithic Programming (lập trình nguyên khối) #
+### Ngôn ngữ lập trình cấp cao và cấp thấp
 
-- Viết toàn bộ chương trình trong hàm Main.
-- Ưu điểm:
-  - Xác định ngôn ngữ lập trình và cách thức hoạt động.
-  - Viết code dễ dàng và nhanh chóng hơn (với cá nhân).
-- Nhược điểm:
-  - Chương trình lớn và phức tạp.
-  - Debug, test, maintain rất khó khăn.
-  - Chỉ một người có thể viết một chương trình tại một thời điểm => không thể chia thành các phân đoạn => phát triển dự án mất nhiều thời gian.
-  - Code lộn xộn và dài dòng.
-  - Không thể tái sử dụng lại những đoạn code trùng lặp.
-  
-### Modular/ Procedural Programming (lập trình thủ tục/ mô đun) #
+-   Ngôn ngữ lập trình cấp thấp (Hệ thống có thể dễ dàng hiểu được):  **Machine Language**  &  **Assembly Language**  (hợp ngữ).
+-   Ngôn ngữ lập trình cấp cao: Phụ thuộc vào người dùng.
 
-- Code được chia thành các function, mô đun. Hàm main sẽ là hàm chịu trách nhiệm thực thi các mô đun. (Language: C)
-- Ưu điểm:
-  - Dễ dàng phát triển phần mềm và ứng dụng (chia nhỏ chương trình để thực hiện nhiều tác vụ).
-  - Dễ đọc, dễ hiểu code.
-  - Có thể tái sử dụng code.
-  - Gỡ lỗi và bảo trì dễ dàng.
+### Cách hoạt động của các chương trình máy tính
 
-### Object-Oriented Programming (lập trình hướng đối tượng) #
+- Translators (trình dịch) là phần mềm hệ thống chuyển đổi code sang mã nhị phân. Nó được chia thành ba loại: **compiler** (biên dịch), **Interpreter** (trình thông dịch), **Assembler** (cách làm việc giống với biên dịch).
+- So sánh:
+	| Tiêu chí | Trình biên dịch | Trình thông dịch |
+	|--|--|--|
+	| Định nghĩa | Trước khi chạy, chương trình sẽ dịch toàn bộ thành mã máy rồi mới tiến hành thực thi | Khi chạy chương trình, ngôn ngữ mới được dịch sang ngôn ngữ máy và thực thi |
+	| Đầu vào | Toàn bộ chương trình | Chỉ một dòng code |
+	| Đầu ra  | Mã đối tượng trung gian | Không tạo ra bất kỳ mã đối tượng trung gian nào |
+	| Cơ chế hoạt động | Việc biên dịch sẽ phải hoàn thành công việc trước khi thực thi | 			Việc biên dịch và thực thi sẽ là đồng thời
+	| Tốc độ | Nhanh hơn | Chậm hơn |
+	| Bộ nhớ | Yêu cầu bộ nhớ nhiều hơn do việc tạo mã đối tượng | Nó đòi hỏi ít bộ nhớ 	hơn vì nó không tạo mã đối tượng trung gian
+	| Errors | Hiển thị tất cả các lỗi sau biên dịch, tất cả cùng một lúc | Hiển thị lỗi của từng dòng một
+	| Phát hiện error | Rất khó khăn | Tương đối dễ |
+	| Các ngôn ngữ lập trình | C, C++, C#, Scala, TypeScript | PHP, Perl, Python, Ruby
+- **Operating system** - OS (hệ điều hành): Giao diện giữa người dùng máy tính và phần cứng máy tính.
+    -   **Loader** (bộ nạp): Tải machine code vào bộ nhớ hệ thống.
+    -   **Linker** (trình liên kết): Liên kết các chương trình nhỏ hơn để tạo thành một chương trình duy nhất (một chương trình dài được chia thành nhiều module).
 
-- Code được chia thành các class (data và các chức năng liên quan sẽ được đóng gói trong cùng lớp). Các object là thể hiện của class.
-- Ưu điểm:
-  - Xây dựng chương trình từ các mô đun - các mô đun giao tiếp với nhau.
-  - Có thể dễ dàng nâng cấp từ hệ thống nhỏ => hệ thống lớn.
-  - Năng suất cao hơn, chất lượng phần mềm tốt hơn và chi phí bảo trì thấp.
+### Các loại Applications khác nhau
 
-## Introduction (Giới thiệu) #
+-   Có 2 loại ứng dụng:
+    -   **Standalone applications** (ứng dụng độc lập): Các ứng dụng được cài đặt trên máy tính, luôn phụ thuộc vào hệ điều hành (Ex: Chrome, Excel, ...).
+    -   **Web applications** (ứng dụng web): Các ứng dụng không cần cài đặt trên máy tính, độc lập với hệ điều hành, không phụ thuộc vào một hệ điều hành cụ thể (Ex: facebook.com, gmail.com, ...).
+-   **Operating System extensions**: Window => .exe, Mac => .dmg, Linux => .rpm.
+> Tất cả các ngôn ngữ lập trình đều là ứng dụng độc lập.
 
-- Thành phần chính của .NET framework:
-  - Common Language Runtime(CLR): Thành phần máy ảo cơ bản của .NET. Là run-time giúp quá trình phát triển dễ dàng hơn. Giúp quản lý mã và quản lý thực thi các chương trình .NET.
-  - Framework Class Library(FCL) - (còn được gọi là Assemblies): Tập hợp các library, method và các class oop.
-=> Cài đặt .NET framework về cơ bản là cài đặt CLR và FCL vào hệ thống.
+## C#.NET
 
-## Basic #
+### Các thành phần chính của .NET framework
 
-### Data type, variable, expression #
+   -   **Common Language Runtime**(CLR): Thành phần máy ảo cơ bản của .NET. Là run-time giúp quá trình phát triển dễ dàng hơn. Giúp quản lý mã và quản lý thực thi các chương trình .NET.
+   -   **Framework Class Library**(FCL) - (còn được gọi là Assemblies): Tập hợp các library, method và các class oop. => Cài đặt .NET framework về cơ bản là cài đặt CLR và FCL vào hệ thống.
 
-- Các kiểu dữ liệu cơ bản trong C#: Số nguyên (int, long), số thực (float, double), số thập phân (decimal), kiểu chuỗi (string), kiểu ký tự (char), kiểu luận lí (bool).
-- Cách thức ép kiểu:
-  - Ép kiểu rộng: Đưa từ kiểu có vùng lưu trữ nhỏ lên kiểu có vùng lưu trữ lớn. => Không sợ mất mát dữ liệu. Ex: `double x = (double)1/2 = 0.5`
-  - Ép kiểu hẹp: Từ lớn về nhỏ => Có thể bị mất mát dữ liệu. Ex: `int x  = (int) 1.0 / 2 = 0`
-  - Trong một biểu thức có nhiều kiểu dữ liệu thì sẽ lấy kiểu lớn hơn làm chuẩn.
-- **Implicit type** trong C#: Khai báo biến mà không cần xác định trước kiểu dữ liệu, C# sẽ tự nội suy ra kiểu dữ liệu khi biến được gán giá trị ngay lần đầu tiên. Ex: `var x = "3/10/2010"` => Date type.
-- Hằng bắt buộc phải được gán giá trị khi khai báo.
+### C#.NET Basics
 
-### Operators #
+#### 1. Data Types in C#
 
-- Toán tử (a++): Gọi là **postfix**.
-- Toán tử (++a) => **prefix**.
-- Cách xử lý postfix và prefix nằm trong 1 biểu thức hỗn hợp:
-  - B1: Ưu tiên xử lý prefix trước.
-  - B2: Thực hiện các phép toán còn lại.
-  - B3: Gán giá trị cho biến bên trái dấu bằng.
-  - B4: Tiến hành tính postfix.
-- Độ ưu tiên toán tử:
-  - TT1: Toán tử đơn: `+, -, ++, --`.
-  - TT2: Các toán tử số học: `*, /, +, -`.
-  - TT3: Các toán tử quan hệ: `>, <, >=, <=, ==, !=`.
-  - TT4: Các toán tử luận lý: `&&, ||, ?:`.
-  - TT5: Các toán tử gán: `=, *=, /=, +=, -=`.
-- **_NOTE_**: Nên dùng ngoặc tròn để quy định biểu thức nào sẽ được thực hiện trước để tránh nhầm lẫn.
+- **Value data types**: lưu trực tiếp giá trị của biến trong bộ nhớ, chấp nhận cả chữ có dấu và không dấu.
+	- Predefined types: sbyte, int, bool, char, double, float, long, short, decimal, etc.
+	- User defined types: enum, struct.
+- **Pointer data type**: Chứa địa chỉ bộ nhớ của giá trị biến. Sử dụng dấu `&`  để xác định địa chỉ của một biến và dấu `*` để truy cập giá trị của một địa chỉ.
+- **References data types**: chứa địa chỉ bộ nhớ của giá trị biến, không lưu trực tiếp giá trị biến trong bộ nhớ.
+	- Predefined types: object, string.
+	- User defined types: class, interface, delegate.
+- Cách lấy size của kiểu dữ liệu định trước: `sizeof(dataType);`
+- Cách lấy default value: `default(dataType);`
 
-### Loop #
+#### 2. Operators
 
-- **break**: Thoát khỏi vòng lặp trực tiếp chứa nó.
-- **continue**: Kết thúc sớm một vòng lặp.
-- **foreach**:
+-   Toán tử (a++): Gọi là  **postfix**.
+-   Toán tử (++a) =>  **prefix**.
+-   Cách xử lý **postfix** và **prefix** nằm trong 1 biểu thức hỗn hợp:
+    -   B1: Ưu tiên xử lý **prefix** trước.
+    -   B2: Thực hiện các phép toán còn lại.
+    -   B3: Gán giá trị cho biến bên trái dấu bằng.
+    -   B4: Tiến hành tính **postfix**.
+-   Độ ưu tiên toán tử:
+    -   TT1: Toán tử đơn:  `+, -, ++, --`.
+    -   TT2: Các toán tử số học:  `*, /, +, -`.
+    -   TT3: Các toán tử quan hệ:  `>, <, >=, <=, ==, !=`.
+    -   TT4: Các toán tử luận lý:  `&&, ||, ?:`.
+    -   TT5: Các toán tử gán:  `=, *=, /=, +=, -=`.
+> Nên dùng ngoặc tròn để quy định biểu thức nào sẽ được thực hiện trước
+> để tránh nhầm lẫn. 
 
-  ```C#
-  foreach(<bien_lap> in <mang, tap hop>)
-  {
-    <Cong viec>;
-  }
-  ```
-  
-- **do ... while**: Phù hợp với suy nghĩ tự nhiên khi thiết kế thuật toán.
-- **while**: khắc phục một số trường hợp lỗi của **do ... while**.
-- **for**: Cách viết ngắn gọn của **while**, sử dụng khi điều kiện lặp phụ thuộc vào biến lặp và số lần lặp có thể biết trước.
-- **foreach**: duyệt đối tượng trong tập danh sách.
+#### 4. Loop
 
-### Function #
+-  **break**: Thoát khỏi vòng lặp trực tiếp chứa nó.
+-  **continue**: Kết thúc sớm một vòng lặp.
+-  **foreach**:
+	```C#
+	foreach(<bien_lap> in <mang, tap  hop>)
+	{
+		<Cong  viec>;
+	}
+	```
+-  **do ... while**: Phù hợp với suy nghĩ tự nhiên khi thiết kế thuật toán.
+-  **while**: khắc phục một số trường hợp lỗi của **do ... while**.
+-  **for**: Cách viết ngắn gọn của **while**, sử dụng khi điều kiện lặp phụ thuộc vào biến lặp và số lần lặp có thể biết trước.
+-  **foreach**: duyệt đối tượng trong tập danh sách.
+
+#### 5. Function
 
 - Hàm có thể có giá trị trả về hoặc không.
 - Hàm không có giá trị trả về được gọi là thủ tục (procedure).
@@ -152,7 +138,7 @@
     - `ref` bắt buộc phải khởi tạo giá trị cho biến trước khi vào hàm.
     - `out` bắt buộc phải gán giá trị cho biến trước khi thoát khỏi hàm.
 
-### Commonly used library #
+#### 6. Commonly used library
 
 - Thư viện nhập / xuất Console:
   - Xuất thông báo ra màn hình console: `Console.WriteLine(...);`, `Console.Write(...);`.
@@ -181,7 +167,7 @@
     DateTime d = DateTime.Parse("20/10/2022");
   ```
 
-### Debug in C# #
+#### 7. Debug in C#
 
 - Debug để tìm ra nguyên nhân dẫn đến các lỗi khác nhau như: Lỗi biên dịch, lỗi lúc thực thi, lỗi sai logic, ...
 - Cách theo dõi giá trị biến khi gỡ lỗi:
@@ -194,7 +180,7 @@
   - **Step Info** (F11): Giống **Step Over** nhưng khi gặp method sẽ chạy từng dòngs lệnh trong method đó.
   - **Step Out** (Shift + F5): Thực hiện tất cả các lệnh còn lại trong method khi sử dụng **Step Info**.
   
-### Xử lý biệt lệ #
+#### 8. Xử lý biệt lệ
 
 - Kiểm soát các biệt lệ giúp cho phần mềm tiếp tục hoạt động nếu lỗi xảy ra (lỗi phát sinh trong coding, ApplicationException, SystemException) hoặc cũng đưa ra các gợi ý bên phía User Problem.
 - Các cấp độ lỗi thường gặp:
@@ -208,9 +194,9 @@
 - Có thể tự định nghĩa một class Exception kế thừa từ `ApplicationException` để có thể tái sử dụng code.
 - **Error provider**: Kiểm soát biệt lệ dựa trên nhập liệu của người dùng.
 
-### Chuỗi & các thao tác trên chuỗi #
+#### 9. String
 
-#### Kiểu char #
+##### Kiểu char
 
 - Lưu trữ ký tự Unicode 16-bit.
 - Kiểu trong .NET framework: `System.Char`.
@@ -250,7 +236,7 @@
   - `Char.ToLower(char)`: Chuyển ký tự chữ hoa sang chữ thường.
   - `Char.ToUpper(char)`: Chuyển ký tự chữ thường sang chữ hoa.
 
-#### Kiểu string #
+##### Kiểu string
 
 - **string** là mảng các ký tự thuộc kiểu **char**
 - Kiểu trong .NET framework: `System.string`.
@@ -274,7 +260,7 @@
 
   - `Lenght`: Return số ký tự trong chuỗi. Ex: `varName.Length;`.
 
-#### Các hàm xử lý string #
+##### Các hàm xử lý string
 
 - **CompareTo**: So sánh chuỗi đang xét với chuỗi _value_. Hai chuỗi bằng nhau (return 0), lớn hơn (return 1), nhỏ hơn (return -1). Ex:
 
@@ -384,4 +370,13 @@
   array[3] = "ba";
   string str = string.join("*", array);
   ```
-  
+
+#### 10. Array
+
+- Khai báo mảng: `DataType[] arrayName;`.
+- Khởi tạo mảng: `arrayName = new DataType[so_phan_tu];`.
+- Khởi tạo và gán luôn giá trị cho mảng: `arrName = new DataType[3]{5, 6, 7};`.
+- Xác định số phần tử của mảng: `arrName.Length`.
+- Không nên duyệt mảng bằng **foreach** khi:
+  - Cần duyệt một phần trong mảng (ví dụ duyệt từ phần tử t2 => t10).
+  - 

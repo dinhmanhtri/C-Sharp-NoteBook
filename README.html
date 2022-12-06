@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>README</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="katex.min.css">
+
+
+
+
+
+
+
+
+
+  <style>
+    /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+    code[class*="language-"],
+    pre[class*="language-"] {
+      color: #333;
+      background: none;
+      font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      word-wrap: normal;
+      line-height: 1.4;
+
+      -moz-tab-size: 8;
+      -o-tab-size: 8;
+      tab-size: 8;
+
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+    }
+
+    /* Code blocks */
+    pre[class*="language-"] {
+      padding: .8em;
+      overflow: auto;
+      /* border: 1px solid #ddd; */
+      border-radius: 3px;
+      /* background: #fff; */
+      background: #f5f5f5;
+    }
+
+    /* Inline code */
+    :not(pre)>code[class*="language-"] {
+      padding: .1em;
+      border-radius: .3em;
+      white-space: normal;
+      background: #f5f5f5;
+    }
+
+    .token.comment,
+    .token.blockquote {
+      color: #969896;
+    }
+
+    .token.cdata {
+      color: #183691;
+    }
+
+    .token.doctype,
+    .token.punctuation,
+    .token.variable,
+    .token.macro.property {
+      color: #333;
+    }
+
+    .token.operator,
+    .token.important,
+    .token.keyword,
+    .token.rule,
+    .token.builtin {
+      color: #a71d5d;
+    }
+
+    .token.string,
+    .token.url,
+    .token.regex,
+    .token.attr-value {
+      color: #183691;
+    }
+
+    .token.property,
+    .token.number,
+    .token.boolean,
+    .token.entity,
+    .token.atrule,
+    .token.constant,
+    .token.symbol,
+    .token.command,
+    .token.code {
+      color: #0086b3;
+    }
+
+    .token.tag,
+    .token.selector,
+    .token.prolog {
+      color: #63a35c;
+    }
+
+    .token.function,
+    .token.namespace,
+    .token.pseudo-element,
+    .token.class,
+    .token.class-name,
+    .token.pseudo-class,
+    .token.id,
+    .token.url-reference .token.variable,
+    .token.attr-name {
+      color: #795da3;
+    }
+
+    .token.entity {
+      cursor: help;
+    }
+
+    .token.title,
+    .token.title .token.punctuation {
+      font-weight: bold;
+      color: #1d3e81;
+    }
+
+    .token.list {
+      color: #ed6a43;
+    }
+
+    .token.inserted {
+      background-color: #eaffea;
+      color: #55a532;
+    }
+
+    .token.deleted {
+      background-color: #ffecec;
+      color: #bd2c00;
+    }
+
+    .token.bold {
+      font-weight: bold;
+    }
+
+    .token.italic {
+      font-style: italic;
+    }
+
+
+    /* JSON */
+    .language-json .token.property {
+      color: #183691;
+    }
+
+    .language-markup .token.tag .token.punctuation {
+      color: #333;
+    }
+
+    /* CSS */
+    code.language-css,
+    .language-css .token.function {
+      color: #0086b3;
+    }
+
+    /* YAML */
+    .language-yaml .token.atrule {
+      color: #63a35c;
+    }
+
+    code.language-yaml {
+      color: #183691;
+    }
+
+    /* Ruby */
+    .language-ruby .token.function {
+      color: #333;
+    }
+
+    /* Markdown */
+    .language-markdown .token.url {
+      color: #795da3;
+    }
+
+    /* Makefile */
+    .language-makefile .token.symbol {
+      color: #795da3;
+    }
+
+    .language-makefile .token.variable {
+      color: #183691;
+    }
+
+    .language-makefile .token.builtin {
+      color: #0086b3;
+    }
+
+    /* Bash */
+    .language-bash .token.keyword {
+      color: #0086b3;
+    }
+
+    /* highlight */
+    pre[data-line] {
+      position: relative;
+      padding: 1em 0 1em 3em;
+    }
+
+    pre[data-line] .line-highlight-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: transparent;
+      display: block;
+      width: 100%;
+    }
+
+    pre[data-line] .line-highlight {
+      position: absolute;
+      left: 0;
+      right: 0;
+      padding: inherit 0;
+      margin-top: 1em;
+      background: hsla(24, 20%, 50%, .08);
+      background: linear-gradient(to right, hsla(24, 20%, 50%, .1) 70%, hsla(24, 20%, 50%, 0));
+      pointer-events: none;
+      line-height: inherit;
+      white-space: pre;
+    }
+
+    pre[data-line] .line-highlight:before,
+    pre[data-line] .line-highlight[data-end]:after {
+      content: attr(data-start);
+      position: absolute;
+      top: .4em;
+      left: .6em;
+      min-width: 1em;
+      padding: 0 .5em;
+      background-color: hsla(24, 20%, 50%, .4);
+      color: hsl(24, 20%, 95%);
+      font: bold 65%/1.5 sans-serif;
+      text-align: center;
+      vertical-align: .3em;
+      border-radius: 999px;
+      text-shadow: none;
+      box-shadow: 0 1px white;
+    }
+
+    pre[data-line] .line-highlight[data-end]:after {
+      content: attr(data-end);
+      top: auto;
+      bottom: .4em;
+    }
+
+    html body {
+      font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+      overflow: initial;
+      box-sizing: border-box;
+      word-wrap: break-word
+    }
+
+    html body>:first-child {
+      margin-top: 0
+    }
+
+    html body h1,
+    html body h2,
+    html body h3,
+    html body h4,
+    html body h5,
+    html body h6 {
+      line-height: 1.2;
+      margin-top: 1em;
+      margin-bottom: 16px;
+      color: #000
+    }
+
+    html body h1 {
+      font-size: 2.25em;
+      font-weight: 300;
+      padding-bottom: .3em
+    }
+
+    html body h2 {
+      font-size: 1.75em;
+      font-weight: 400;
+      padding-bottom: .3em
+    }
+
+    html body h3 {
+      font-size: 1.5em;
+      font-weight: 500
+    }
+
+    html body h4 {
+      font-size: 1.25em;
+      font-weight: 600
+    }
+
+    html body h5 {
+      font-size: 1.1em;
+      font-weight: 600
+    }
+
+    html body h6 {
+      font-size: 1em;
+      font-weight: 600
+    }
+
+    html body h1,
+    html body h2,
+    html body h3,
+    html body h4,
+    html body h5 {
+      font-weight: 600
+    }
+
+    html body h5 {
+      font-size: 1em
+    }
+
+    html body h6 {
+      color: #5c5c5c
+    }
+
+    html body strong {
+      color: #000
+    }
+
+    html body del {
+      color: #5c5c5c
+    }
+
+    html body a:not([href]) {
+      color: inherit;
+      text-decoration: none
+    }
+
+    html body a {
+      color: #08c;
+      text-decoration: none
+    }
+
+    html body a:hover {
+      color: #00a3f5;
+      text-decoration: none
+    }
+
+    html body img {
+      max-width: 100%
+    }
+
+    html body>p {
+      margin-top: 0;
+      margin-bottom: 16px;
+      word-wrap: break-word
+    }
+
+    html body>ul,
+    html body>ol {
+      margin-bottom: 16px
+    }
+
+    html body ul,
+    html body ol {
+      padding-left: 2em
+    }
+
+    html body ul.no-list,
+    html body ol.no-list {
+      padding: 0;
+      list-style-type: none
+    }
+
+    html body ul ul,
+    html body ul ol,
+    html body ol ol,
+    html body ol ul {
+      margin-top: 0;
+      margin-bottom: 0
+    }
+
+    html body li {
+      margin-bottom: 0
+    }
+
+    html body li.task-list-item {
+      list-style: none
+    }
+
+    html body li>p {
+      margin-top: 0;
+      margin-bottom: 0
+    }
+
+    html body .task-list-item-checkbox {
+      margin: 0 .2em .25em -1.8em;
+      vertical-align: middle
+    }
+
+    html body .task-list-item-checkbox:hover {
+      cursor: pointer
+    }
+
+    html body blockquote {
+      margin: 16px 0;
+      font-size: inherit;
+      padding: 0 15px;
+      color: #5c5c5c;
+      background-color: #f0f0f0;
+      border-left: 4px solid #d6d6d6
+    }
+
+    html body blockquote>:first-child {
+      margin-top: 0
+    }
+
+    html body blockquote>:last-child {
+      margin-bottom: 0
+    }
+
+    html body hr {
+      height: 4px;
+      margin: 32px 0;
+      background-color: #d6d6d6;
+      border: 0 none
+    }
+
+    html body table {
+      margin: 10px 0 15px 0;
+      border-collapse: collapse;
+      border-spacing: 0;
+      display: block;
+      width: 100%;
+      overflow: auto;
+      word-break: normal;
+      word-break: keep-all
+    }
+
+    html body table th {
+      font-weight: bold;
+      color: #000
+    }
+
+    html body table td,
+    html body table th {
+      border: 1px solid #d6d6d6;
+      padding: 6px 13px
+    }
+
+    html body dl {
+      padding: 0
+    }
+
+    html body dl dt {
+      padding: 0;
+      margin-top: 16px;
+      font-size: 1em;
+      font-style: italic;
+      font-weight: bold
+    }
+
+    html body dl dd {
+      padding: 0 16px;
+      margin-bottom: 16px
+    }
+
+    html body code {
+      font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+      font-size: .85em !important;
+      color: #000;
+      background-color: #f0f0f0;
+      border-radius: 3px;
+      padding: .2em 0
+    }
+
+    html body code::before,
+    html body code::after {
+      letter-spacing: -0.2em;
+      content: "\00a0"
+    }
+
+    html body pre>code {
+      padding: 0;
+      margin: 0;
+      font-size: .85em !important;
+      word-break: normal;
+      white-space: pre;
+      background: transparent;
+      border: 0
+    }
+
+    html body .highlight {
+      margin-bottom: 16px
+    }
+
+    html body .highlight pre,
+    html body pre {
+      padding: 1em;
+      overflow: auto;
+      font-size: .85em !important;
+      line-height: 1.45;
+      border: #d6d6d6;
+      border-radius: 3px
+    }
+
+    html body .highlight pre {
+      margin-bottom: 0;
+      word-break: normal
+    }
+
+    html body pre code,
+    html body pre tt {
+      display: inline;
+      max-width: initial;
+      padding: 0;
+      margin: 0;
+      overflow: initial;
+      line-height: inherit;
+      word-wrap: normal;
+      background-color: transparent;
+      border: 0
+    }
+
+    html body pre code:before,
+    html body pre tt:before,
+    html body pre code:after,
+    html body pre tt:after {
+      content: normal
+    }
+
+    html body p,
+    html body blockquote,
+    html body ul,
+    html body ol,
+    html body dl,
+    html body pre {
+      margin-top: 0;
+      margin-bottom: 16px
+    }
+
+    html body kbd {
+      color: #000;
+      border: 1px solid #d6d6d6;
+      border-bottom: 2px solid #c7c7c7;
+      padding: 2px 4px;
+      background-color: #f0f0f0;
+      border-radius: 3px
+    }
+
+    @media print {
+      html body {
+        background-color: #fff
+      }
+
+      html body h1,
+      html body h2,
+      html body h3,
+      html body h4,
+      html body h5,
+      html body h6 {
+        color: #000;
+        page-break-after: avoid
+      }
+
+      html body blockquote {
+        color: #5c5c5c
+      }
+
+      html body pre {
+        page-break-inside: avoid
+      }
+
+      html body table {
+        display: table
+      }
+
+      html body img {
+        display: block;
+        max-width: 100%;
+        max-height: 100%
+      }
+
+      html body pre,
+      html body code {
+        word-wrap: break-word;
+        white-space: pre
+      }
+    }
+
+    .markdown-preview {
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box
+    }
+
+    .markdown-preview .pagebreak,
+    .markdown-preview .newpage {
+      page-break-before: always
+    }
+
+    .markdown-preview pre.line-numbers {
+      position: relative;
+      padding-left: 3.8em;
+      counter-reset: linenumber
+    }
+
+    .markdown-preview pre.line-numbers>code {
+      position: relative
+    }
+
+    .markdown-preview pre.line-numbers .line-numbers-rows {
+      position: absolute;
+      pointer-events: none;
+      top: 1em;
+      font-size: 100%;
+      left: 0;
+      width: 3em;
+      letter-spacing: -1px;
+      border-right: 1px solid #999;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none
+    }
+
+    .markdown-preview pre.line-numbers .line-numbers-rows>span {
+      pointer-events: none;
+      display: block;
+      counter-increment: linenumber
+    }
+
+    .markdown-preview pre.line-numbers .line-numbers-rows>span:before {
+      content: counter(linenumber);
+      color: #999;
+      display: block;
+      padding-right: .8em;
+      text-align: right
+    }
+
+    .markdown-preview .mathjax-exps .MathJax_Display {
+      text-align: center !important
+    }
+
+    .markdown-preview:not([for="preview"]) .code-chunk .btn-group {
+      display: none
+    }
+
+    .markdown-preview:not([for="preview"]) .code-chunk .status {
+      display: none
+    }
+
+    .markdown-preview:not([for="preview"]) .code-chunk .output-div {
+      margin-bottom: 16px
+    }
+
+    .scrollbar-style::-webkit-scrollbar {
+      width: 8px
+    }
+
+    .scrollbar-style::-webkit-scrollbar-track {
+      border-radius: 10px;
+      background-color: transparent
+    }
+
+    .scrollbar-style::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      background-color: rgba(150, 150, 150, 0.66);
+      border: 4px solid rgba(150, 150, 150, 0.66);
+      background-clip: content-box
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode]) {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      margin: 0;
+      padding: 0;
+      overflow: auto
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
+      position: relative;
+      top: 0
+    }
+
+    @media screen and (min-width:914px) {
+      html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
+        padding: 2em calc(50% - 457px + 2em)
+      }
+    }
+
+    @media screen and (max-width:914px) {
+      html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
+        padding: 2em
+      }
+    }
+
+    @media screen and (max-width:450px) {
+      html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
+        font-size: 14px !important;
+        padding: 1em
+      }
+    }
+
+    @media print {
+      html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn {
+        display: none
+      }
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn {
+      position: fixed;
+      bottom: 8px;
+      left: 8px;
+      font-size: 28px;
+      cursor: pointer;
+      color: inherit;
+      z-index: 99;
+      width: 32px;
+      text-align: center;
+      opacity: .4
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn {
+      opacity: 1
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 300px;
+      height: 100%;
+      padding: 32px 0 48px 0;
+      font-size: 14px;
+      box-shadow: 0 0 4px rgba(150, 150, 150, 0.33);
+      box-sizing: border-box;
+      overflow: auto;
+      background-color: inherit
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar {
+      width: 8px
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track {
+      border-radius: 10px;
+      background-color: transparent
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      background-color: rgba(150, 150, 150, 0.66);
+      border: 4px solid rgba(150, 150, 150, 0.66);
+      background-clip: content-box
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a {
+      text-decoration: none
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul {
+      padding: 0 1.6em;
+      margin-top: .8em
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li {
+      margin-bottom: .8em
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul {
+      list-style-type: none
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview {
+      left: 300px;
+      width: calc(100% - 300px);
+      padding: 2em calc(50% - 457px - 150px);
+      margin: 0;
+      box-sizing: border-box
+    }
+
+    @media screen and (max-width:1274px) {
+      html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview {
+        padding: 2em
+      }
+    }
+
+    @media screen and (max-width:450px) {
+      html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview {
+        width: 100%
+      }
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview {
+      left: 50%;
+      transform: translateX(-50%)
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc {
+      display: none
+    }
+
+    /* Please visit the URL below for more information: */
+    /*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+  </style>
+</head>
+
+<body for="html-export">
+  <div class="mume markdown-preview  ">
+    <h1 class="mume-header" id="welcome-to-c-note-book">Welcome to C# Note Book!</h1>
+
+    <p><strong>T&#x1ED5;ng h&#x1EE3;p ng&#x1EAF;n g&#x1ECD;n t&#x1EA5;t c&#x1EA3; c&#xE1;c ki&#x1EBF;n th&#x1EE9;c
+        li&#xEA;n quan &#x111;&#x1EBF;n C#.Net</strong></p>
+    <h2 class="mume-header" id="t%E1%BB%95ng-h%E1%BB%A3p-v%E1%BB%81-m%C3%A1y-t%C3%ADnh">T&#x1ED5;ng h&#x1EE3;p v&#x1EC1;
+      m&#xE1;y t&#xED;nh</h2>
+
+    <h3 class="mume-header" id="c%C3%A1c-th%C3%A0nh-ph%E1%BA%A7n-ch%C3%ADnh-c%E1%BB%A7a-m%C3%A1y-t%C3%ADnh">C&#xE1;c
+      th&#xE0;nh ph&#x1EA7;n ch&#xED;nh c&#x1EE7;a m&#xE1;y t&#xED;nh</h3>
+
+    <ul>
+      <li><strong>CPU - Central Processing Unit (B&#x1ED9; x&#x1EED; l&#xFD; trung t&#xE2;m)</strong>: Tr&#xE1;i tim
+        c&#x1EE7;a m&#xE1;y t&#xED;nh. Bao g&#x1ED3;m ALU (th&#x1EF1;c hi&#x1EC7;n c&#xE1;c ph&#xE9;p to&#xE1;n v&#xE0;
+        logic s&#x1ED1; h&#x1ECD;c c&#x1A1; b&#x1EA3;n) v&#xE0; CU (gi&#xFA;p s&#x1EED; d&#x1EE5;ng c&#xE1;c t&#xE0;i
+        nguy&#xEA;n m&#x1ED9;t c&#xE1;ch hi&#x1EC7;u qu&#x1EA3;).</li>
+      <li><strong>Main memory (B&#x1ED9; nh&#x1EDB; ch&#xED;nh - RAM)</strong>: CPU kh&#xF4;ng th&#x1EC3; truy
+        c&#x1EAD;p &#x1ED5; c&#x1EE9;ng m&#xE0; ch&#x1EC9; c&#xF3; th&#x1EC3; truy c&#x1EAD;p <em>main memory</em>.
+        V&#xEC; v&#x1EAD;y Program file c&#x1EA7;n &#x111;&#x1B0;&#x1EE3;c &#x111;&#x1B0;a t&#x1EEB; <em>&#x1ED5;
+          c&#x1EE9;ng</em> v&#xE0;o <em>main memory</em> &#x111;&#x1EC3; CPU c&#xF3; th&#x1EC3; th&#x1EF1;c thi.</li>
+      <li><strong>Hard disk (&#x1ED4; &#x111;&#x129;a c&#x1EE9;ng)</strong>: Thi&#x1EBF;t b&#x1ECB; l&#x1B0;u tr&#x1EEF;
+        c&#x1EE7;a m&#xE1;y t&#xED;nh. Bao g&#x1ED3;m <em>program files</em> v&#xE0; <em>data files</em>.</li>
+      <li><strong>Input devices (Thi&#x1EBF;t b&#x1ECB; &#x111;&#x1EA7;u v&#xE0;o)</strong>: T&#x1EA5;t c&#x1EA3;
+        &#x111;i&#x1EC1;u g&#xEC; &#x111;&#x1B0;&#x1EE3;c nh&#x1EAD;p t&#x1EEB; b&#xE0;n ph&#xED;m s&#x1EBD;
+        &#x111;&#x1B0;&#x1EE3;c l&#x1B0;u trong <em>input buffer</em> (b&#x1ED9; &#x111;&#x1EC7;m &#x111;&#x1EA7;u
+        v&#xE0;o). Program s&#x1EBD; &#x111;&#x1ECD;c input t&#x1EEB; <em>input buffer</em>. Ex: Chu&#x1ED9;t, b&#xE0;n
+        ph&#xED;m, ...</li>
+      <li><strong>Output devices (Thi&#x1EBF;t b&#x1ECB; &#x111;&#x1EA7;u ra)</strong>: T&#x1EA5;t c&#x1EA3;
+        &#x111;&#x1EA7;u ra s&#x1EBD; &#x111;&#x1B0;&#x1EE3;c l&#x1B0;u trong <em>output buffer</em> (b&#x1ED9;
+        &#x111;&#x1EC7;m &#x111;&#x1EA7;u ra) v&#xE0; s&#x1EBD; &#x111;&#x1B0;&#x1EE3;c xu&#x1EA5;t ra. Ex: Loa,
+        m&#xE0;n h&#xEC;nh, ...</li>
+    </ul>
+    <h3 class="mume-header" id="software">Software</h3>
+
+    <ul>
+      <li>L&#xE0; t&#x1EAD;p h&#x1EE3;p c&#xE1;c ch&#x1B0;&#x1A1;ng tr&#xEC;nh s&#x1EED; d&#x1EE5;ng t&#xE0;i
+        nguy&#xEA;n c&#x1EE7;a <em>Hardware components (c&#xE1;c th&#xE0;nh ph&#x1EA7;n c&#x1EE7;a ph&#x1EA7;n
+          c&#x1EE9;ng)</em>.</li>
+      <li>C&#xF3; 2 lo&#x1EA1;i ph&#x1EA7;n m&#x1EC1;m:
+        <ul>
+          <li><strong>System software (Ph&#x1EA7;n m&#x1EC1;m h&#x1EC7; th&#x1ED1;ng):</strong> Bao g&#x1ED3;m
+            <em>Operating system</em> (DOS, WINDOWS, LINUX, UNIX), <em>System support</em> (compiler, interpreter,
+            Assembler), <em>System development</em> (Linker, Loader, Editor).</li>
+          <li><strong>Application software:</strong> Bao g&#x1ED3;m <em>Application-Specific</em> (MS OFFICE, Oracle)
+            v&#xE0; <em>General Purpose Software</em> (Tally).</li>
+        </ul>
+      </li>
+    </ul>
+    <h3 class="mume-header"
+      id="ng%C3%B4n-ng%E1%BB%AF-l%E1%BA%ADp-tr%C3%ACnh-c%E1%BA%A5p-cao-v%C3%A0-c%E1%BA%A5p-th%E1%BA%A5p">Ng&#xF4;n
+      ng&#x1EEF; l&#x1EAD;p tr&#xEC;nh c&#x1EA5;p cao v&#xE0; c&#x1EA5;p th&#x1EA5;p</h3>
+
+    <ul>
+      <li>Ng&#xF4;n ng&#x1EEF; l&#x1EAD;p tr&#xEC;nh c&#x1EA5;p th&#x1EA5;p (H&#x1EC7; th&#x1ED1;ng c&#xF3; th&#x1EC3;
+        d&#x1EC5; d&#xE0;ng hi&#x1EC3;u &#x111;&#x1B0;&#x1EE3;c): <strong>Machine Language</strong> &amp;
+        <strong>Assembly Language</strong> (h&#x1EE3;p ng&#x1EEF;).</li>
+      <li>Ng&#xF4;n ng&#x1EEF; l&#x1EAD;p tr&#xEC;nh c&#x1EA5;p cao: Ph&#x1EE5; thu&#x1ED9;c v&#xE0;o ng&#x1B0;&#x1EDD;i
+        d&#xF9;ng.</li>
+    </ul>
+    <h3 class="mume-header"
+      id="c%C3%A1ch-ho%E1%BA%A1t-%C4%91%E1%BB%99ng-c%E1%BB%A7a-c%C3%A1c-ch%C6%B0%C6%A1ng-tr%C3%ACnh-m%C3%A1y-t%C3%ADnh">
+      C&#xE1;ch ho&#x1EA1;t &#x111;&#x1ED9;ng c&#x1EE7;a c&#xE1;c ch&#x1B0;&#x1A1;ng tr&#xEC;nh m&#xE1;y t&#xED;nh</h3>
+
+    <ul>
+      <li>Translators (tr&#xEC;nh d&#x1ECB;ch) l&#xE0; ph&#x1EA7;n m&#x1EC1;m h&#x1EC7; th&#x1ED1;ng chuy&#x1EC3;n
+        &#x111;&#x1ED5;i code sang m&#xE3; nh&#x1ECB; ph&#xE2;n. N&#xF3; &#x111;&#x1B0;&#x1EE3;c chia th&#xE0;nh ba
+        lo&#x1EA1;i: <strong>compiler</strong> (bi&#xEA;n d&#x1ECB;ch), <strong>Interpreter</strong> (tr&#xEC;nh
+        th&#xF4;ng d&#x1ECB;ch), <strong>Assembler</strong> (c&#xE1;ch l&#xE0;m vi&#x1EC7;c gi&#x1ED1;ng v&#x1EDB;i
+        bi&#xEA;n d&#x1ECB;ch).</li>
+      <li>So s&#xE1;nh:
+        <table>
+          <thead>
+            <tr>
+              <th>Ti&#xEA;u ch&#xED;</th>
+              <th>Tr&#xEC;nh bi&#xEA;n d&#x1ECB;ch</th>
+              <th>Tr&#xEC;nh th&#xF4;ng d&#x1ECB;ch</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>&#x110;&#x1ECB;nh ngh&#x129;a</td>
+              <td>Tr&#x1B0;&#x1EDB;c khi ch&#x1EA1;y, ch&#x1B0;&#x1A1;ng tr&#xEC;nh s&#x1EBD; d&#x1ECB;ch to&#xE0;n
+                b&#x1ED9; th&#xE0;nh m&#xE3; m&#xE1;y r&#x1ED3;i m&#x1EDB;i ti&#x1EBF;n h&#xE0;nh th&#x1EF1;c thi</td>
+              <td>Khi ch&#x1EA1;y ch&#x1B0;&#x1A1;ng tr&#xEC;nh, ng&#xF4;n ng&#x1EEF; m&#x1EDB;i &#x111;&#x1B0;&#x1EE3;c
+                d&#x1ECB;ch sang ng&#xF4;n ng&#x1EEF; m&#xE1;y v&#xE0; th&#x1EF1;c thi</td>
+            </tr>
+            <tr>
+              <td>&#x110;&#x1EA7;u v&#xE0;o</td>
+              <td>To&#xE0;n b&#x1ED9; ch&#x1B0;&#x1A1;ng tr&#xEC;nh</td>
+              <td>Ch&#x1EC9; m&#x1ED9;t d&#xF2;ng code</td>
+            </tr>
+            <tr>
+              <td>&#x110;&#x1EA7;u ra</td>
+              <td>M&#xE3; &#x111;&#x1ED1;i t&#x1B0;&#x1EE3;ng trung gian</td>
+              <td>Kh&#xF4;ng t&#x1EA1;o ra b&#x1EA5;t k&#x1EF3; m&#xE3; &#x111;&#x1ED1;i t&#x1B0;&#x1EE3;ng trung gian
+                n&#xE0;o</td>
+            </tr>
+            <tr>
+              <td>C&#x1A1; ch&#x1EBF; ho&#x1EA1;t &#x111;&#x1ED9;ng</td>
+              <td>Vi&#x1EC7;c bi&#xEA;n d&#x1ECB;ch s&#x1EBD; ph&#x1EA3;i ho&#xE0;n th&#xE0;nh c&#xF4;ng vi&#x1EC7;c
+                tr&#x1B0;&#x1EDB;c khi th&#x1EF1;c thi</td>
+              <td>Vi&#x1EC7;c bi&#xEA;n d&#x1ECB;ch v&#xE0; th&#x1EF1;c thi s&#x1EBD; l&#xE0; &#x111;&#x1ED3;ng
+                th&#x1EDD;i</td>
+            </tr>
+            <tr>
+              <td>T&#x1ED1;c &#x111;&#x1ED9;</td>
+              <td>Nhanh h&#x1A1;n</td>
+              <td>Ch&#x1EAD;m h&#x1A1;n</td>
+            </tr>
+            <tr>
+              <td>B&#x1ED9; nh&#x1EDB;</td>
+              <td>Y&#xEA;u c&#x1EA7;u b&#x1ED9; nh&#x1EDB; nhi&#x1EC1;u h&#x1A1;n do vi&#x1EC7;c t&#x1EA1;o m&#xE3;
+                &#x111;&#x1ED1;i t&#x1B0;&#x1EE3;ng</td>
+              <td>N&#xF3; &#x111;&#xF2;i h&#x1ECF;i &#xED;t b&#x1ED9; nh&#x1EDB; h&#x1A1;n v&#xEC; n&#xF3; kh&#xF4;ng
+                t&#x1EA1;o m&#xE3; &#x111;&#x1ED1;i t&#x1B0;&#x1EE3;ng trung gian</td>
+            </tr>
+            <tr>
+              <td>Errors</td>
+              <td>Hi&#x1EC3;n th&#x1ECB; t&#x1EA5;t c&#x1EA3; c&#xE1;c l&#x1ED7;i sau bi&#xEA;n d&#x1ECB;ch, t&#x1EA5;t
+                c&#x1EA3; c&#xF9;ng m&#x1ED9;t l&#xFA;c</td>
+              <td>Hi&#x1EC3;n th&#x1ECB; l&#x1ED7;i c&#x1EE7;a t&#x1EEB;ng d&#xF2;ng m&#x1ED9;t</td>
+            </tr>
+            <tr>
+              <td>Ph&#xE1;t hi&#x1EC7;n error</td>
+              <td>R&#x1EA5;t kh&#xF3; kh&#x103;n</td>
+              <td>T&#x1B0;&#x1A1;ng &#x111;&#x1ED1;i d&#x1EC5;</td>
+            </tr>
+            <tr>
+              <td>C&#xE1;c ng&#xF4;n ng&#x1EEF; l&#x1EAD;p tr&#xEC;nh</td>
+              <td>C, C++, C#, Scala, TypeScript</td>
+              <td>PHP, Perl, Python, Ruby</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+      <li><strong>Operating system</strong> - OS (h&#x1EC7; &#x111;i&#x1EC1;u h&#xE0;nh): Giao di&#x1EC7;n gi&#x1EEF;a
+        ng&#x1B0;&#x1EDD;i d&#xF9;ng m&#xE1;y t&#xED;nh v&#xE0; ph&#x1EA7;n c&#x1EE9;ng m&#xE1;y t&#xED;nh.
+        <ul>
+          <li><strong>Loader</strong> (b&#x1ED9; n&#x1EA1;p): T&#x1EA3;i machine code v&#xE0;o b&#x1ED9; nh&#x1EDB;
+            h&#x1EC7; th&#x1ED1;ng.</li>
+          <li><strong>Linker</strong> (tr&#xEC;nh li&#xEA;n k&#x1EBF;t): Li&#xEA;n k&#x1EBF;t c&#xE1;c
+            ch&#x1B0;&#x1A1;ng tr&#xEC;nh nh&#x1ECF; h&#x1A1;n &#x111;&#x1EC3; t&#x1EA1;o th&#xE0;nh m&#x1ED9;t
+            ch&#x1B0;&#x1A1;ng tr&#xEC;nh duy nh&#x1EA5;t (m&#x1ED9;t ch&#x1B0;&#x1A1;ng tr&#xEC;nh d&#xE0;i
+            &#x111;&#x1B0;&#x1EE3;c chia th&#xE0;nh nhi&#x1EC1;u module).</li>
+        </ul>
+      </li>
+    </ul>
+    <h3 class="mume-header" id="c%C3%A1c-lo%E1%BA%A1i-applications-kh%C3%A1c-nhau">C&#xE1;c lo&#x1EA1;i Applications
+      kh&#xE1;c nhau</h3>
+
+    <ul>
+      <li>C&#xF3; 2 lo&#x1EA1;i &#x1EE9;ng d&#x1EE5;ng:
+        <ul>
+          <li><strong>Standalone applications</strong> (&#x1EE9;ng d&#x1EE5;ng &#x111;&#x1ED9;c l&#x1EAD;p): C&#xE1;c
+            &#x1EE9;ng d&#x1EE5;ng &#x111;&#x1B0;&#x1EE3;c c&#xE0;i &#x111;&#x1EB7;t tr&#xEA;n m&#xE1;y t&#xED;nh,
+            lu&#xF4;n ph&#x1EE5; thu&#x1ED9;c v&#xE0;o h&#x1EC7; &#x111;i&#x1EC1;u h&#xE0;nh (Ex: Chrome, Excel, ...).
+          </li>
+          <li><strong>Web applications</strong> (&#x1EE9;ng d&#x1EE5;ng web): C&#xE1;c &#x1EE9;ng d&#x1EE5;ng kh&#xF4;ng
+            c&#x1EA7;n c&#xE0;i &#x111;&#x1EB7;t tr&#xEA;n m&#xE1;y t&#xED;nh, &#x111;&#x1ED9;c l&#x1EAD;p v&#x1EDB;i
+            h&#x1EC7; &#x111;i&#x1EC1;u h&#xE0;nh, kh&#xF4;ng ph&#x1EE5; thu&#x1ED9;c v&#xE0;o m&#x1ED9;t h&#x1EC7;
+            &#x111;i&#x1EC1;u h&#xE0;nh c&#x1EE5; th&#x1EC3; (Ex: <a href="http://facebook.com">facebook.com</a>, <a
+              href="http://gmail.com">gmail.com</a>, ...).</li>
+        </ul>
+      </li>
+      <li><strong>Operating System extensions</strong>: Window =&gt; .exe, Mac =&gt; .dmg, Linux =&gt; .rpm.</li>
+    </ul>
+    <blockquote>
+      <p>T&#x1EA5;t c&#x1EA3; c&#xE1;c ng&#xF4;n ng&#x1EEF; l&#x1EAD;p tr&#xEC;nh &#x111;&#x1EC1;u l&#xE0; &#x1EE9;ng
+        d&#x1EE5;ng &#x111;&#x1ED9;c l&#x1EAD;p.</p>
+    </blockquote>
+    <h2 class="mume-header" id="cnet">C#.NET</h2>
+
+    <h3 class="mume-header" id="c%C3%A1c-th%C3%A0nh-ph%E1%BA%A7n-ch%C3%ADnh-c%E1%BB%A7a-net-framework">C&#xE1;c
+      th&#xE0;nh ph&#x1EA7;n ch&#xED;nh c&#x1EE7;a .NET framework</h3>
+
+    <ul>
+      <li><strong>Common Language Runtime</strong>(CLR): Th&#xE0;nh ph&#x1EA7;n m&#xE1;y &#x1EA3;o c&#x1A1; b&#x1EA3;n
+        c&#x1EE7;a .NET. L&#xE0; run-time gi&#xFA;p qu&#xE1; tr&#xEC;nh ph&#xE1;t tri&#x1EC3;n d&#x1EC5; d&#xE0;ng
+        h&#x1A1;n. Gi&#xFA;p qu&#x1EA3;n l&#xFD; m&#xE3; v&#xE0; qu&#x1EA3;n l&#xFD; th&#x1EF1;c thi c&#xE1;c
+        ch&#x1B0;&#x1A1;ng tr&#xEC;nh .NET.</li>
+      <li><strong>Framework Class Library</strong>(FCL) - (c&#xF2;n &#x111;&#x1B0;&#x1EE3;c g&#x1ECD;i l&#xE0;
+        Assemblies): T&#x1EAD;p h&#x1EE3;p c&#xE1;c library, method v&#xE0; c&#xE1;c class oop. =&gt; C&#xE0;i
+        &#x111;&#x1EB7;t .NET framework v&#x1EC1; c&#x1A1; b&#x1EA3;n l&#xE0; c&#xE0;i &#x111;&#x1EB7;t CLR v&#xE0; FCL
+        v&#xE0;o h&#x1EC7; th&#x1ED1;ng.</li>
+    </ul>
+    <h3 class="mume-header" id="cnet-basics">C#.NET Basics</h3>
+
+    <h4 class="mume-header" id="1-data-types-in-c">1. Data Types in C#</h4>
+
+    <ul>
+      <li><strong>Value data types</strong>: l&#x1B0;u tr&#x1EF1;c ti&#x1EBF;p gi&#xE1; tr&#x1ECB; c&#x1EE7;a
+        bi&#x1EBF;n trong b&#x1ED9; nh&#x1EDB;, ch&#x1EA5;p nh&#x1EAD;n c&#x1EA3; ch&#x1EEF; c&#xF3; d&#x1EA5;u v&#xE0;
+        kh&#xF4;ng d&#x1EA5;u.
+        <ul>
+          <li>Predefined types: sbyte, int, bool, char, double, float, long, short, decimal, etc.</li>
+          <li>User defined types: enum, struct.</li>
+        </ul>
+      </li>
+      <li><strong>Pointer data type</strong>: Ch&#x1EE9;a &#x111;&#x1ECB;a ch&#x1EC9; b&#x1ED9; nh&#x1EDB; c&#x1EE7;a
+        gi&#xE1; tr&#x1ECB; bi&#x1EBF;n. S&#x1EED; d&#x1EE5;ng d&#x1EA5;u <code>&amp;</code> &#x111;&#x1EC3; x&#xE1;c
+        &#x111;&#x1ECB;nh &#x111;&#x1ECB;a ch&#x1EC9; c&#x1EE7;a m&#x1ED9;t bi&#x1EBF;n v&#xE0; d&#x1EA5;u
+        <code>*</code> &#x111;&#x1EC3; truy c&#x1EAD;p gi&#xE1; tr&#x1ECB; c&#x1EE7;a m&#x1ED9;t &#x111;&#x1ECB;a
+        ch&#x1EC9;.</li>
+      <li><strong>References data types</strong>: ch&#x1EE9;a &#x111;&#x1ECB;a ch&#x1EC9; b&#x1ED9; nh&#x1EDB;
+        c&#x1EE7;a gi&#xE1; tr&#x1ECB; bi&#x1EBF;n, kh&#xF4;ng l&#x1B0;u tr&#x1EF1;c ti&#x1EBF;p gi&#xE1; tr&#x1ECB;
+        bi&#x1EBF;n trong b&#x1ED9; nh&#x1EDB;.
+        <ul>
+          <li>Predefined types: object, string.</li>
+          <li>User defined types: class, interface, delegate.</li>
+        </ul>
+      </li>
+      <li>C&#xE1;ch l&#x1EA5;y size c&#x1EE7;a ki&#x1EC3;u d&#x1EEF; li&#x1EC7;u &#x111;&#x1ECB;nh tr&#x1B0;&#x1EDB;c:
+        <code>sizeof(dataType);</code></li>
+      <li>C&#xE1;ch l&#x1EA5;y default value: <code>default(dataType);</code></li>
+    </ul>
+    <h4 class="mume-header" id="2-operators">2. Operators</h4>
+
+    <ul>
+      <li>To&#xE1;n t&#x1EED; (a++): G&#x1ECD;i l&#xE0; <strong>postfix</strong>.</li>
+      <li>To&#xE1;n t&#x1EED; (++a) =&gt; <strong>prefix</strong>.</li>
+      <li>C&#xE1;ch x&#x1EED; l&#xFD; <strong>postfix</strong> v&#xE0; <strong>prefix</strong> n&#x1EB1;m trong 1
+        bi&#x1EC3;u th&#x1EE9;c h&#x1ED7;n h&#x1EE3;p:
+        <ul>
+          <li>B1: &#x1AF;u ti&#xEA;n x&#x1EED; l&#xFD; <strong>prefix</strong> tr&#x1B0;&#x1EDB;c.</li>
+          <li>B2: Th&#x1EF1;c hi&#x1EC7;n c&#xE1;c ph&#xE9;p to&#xE1;n c&#xF2;n l&#x1EA1;i.</li>
+          <li>B3: G&#xE1;n gi&#xE1; tr&#x1ECB; cho bi&#x1EBF;n b&#xEA;n tr&#xE1;i d&#x1EA5;u b&#x1EB1;ng.</li>
+          <li>B4: Ti&#x1EBF;n h&#xE0;nh t&#xED;nh <strong>postfix</strong>.</li>
+        </ul>
+      </li>
+      <li>&#x110;&#x1ED9; &#x1B0;u ti&#xEA;n to&#xE1;n t&#x1EED;:
+        <ul>
+          <li>TT1: To&#xE1;n t&#x1EED; &#x111;&#x1A1;n: <code>+, -, ++, --</code>.</li>
+          <li>TT2: C&#xE1;c to&#xE1;n t&#x1EED; s&#x1ED1; h&#x1ECD;c: <code>*, /, +, -</code>.</li>
+          <li>TT3: C&#xE1;c to&#xE1;n t&#x1EED; quan h&#x1EC7;: <code>&gt;, &lt;, &gt;=, &lt;=, ==, !=</code>.</li>
+          <li>TT4: C&#xE1;c to&#xE1;n t&#x1EED; lu&#x1EAD;n l&#xFD;: <code>&amp;&amp;, ||, ?:</code>.</li>
+          <li>TT5: C&#xE1;c to&#xE1;n t&#x1EED; g&#xE1;n: <code>=, *=, /=, +=, -=</code>.</li>
+        </ul>
+      </li>
+    </ul>
+    <blockquote>
+      <p>N&#xEA;n d&#xF9;ng ngo&#x1EB7;c tr&#xF2;n &#x111;&#x1EC3; quy &#x111;&#x1ECB;nh bi&#x1EC3;u th&#x1EE9;c
+        n&#xE0;o s&#x1EBD; &#x111;&#x1B0;&#x1EE3;c th&#x1EF1;c hi&#x1EC7;n tr&#x1B0;&#x1EDB;c<br>
+        &#x111;&#x1EC3; tr&#xE1;nh nh&#x1EA7;m l&#x1EAB;n.</p>
+    </blockquote>
+    <h4 class="mume-header" id="4-loop">4. Loop</h4>
+
+    <ul>
+      <li><strong>break</strong>: Tho&#xE1;t kh&#x1ECF;i v&#xF2;ng l&#x1EB7;p tr&#x1EF1;c ti&#x1EBF;p ch&#x1EE9;a
+        n&#xF3;.</li>
+      <li><strong>continue</strong>: K&#x1EBF;t th&#xFA;c s&#x1EDB;m m&#x1ED9;t v&#xF2;ng l&#x1EB7;p.</li>
+      <li><strong>foreach</strong>:
+        <pre data-role="codeBlock" data-info="C#" class="language-c#"><code>foreach(&lt;bien_lap&gt; in &lt;mang, tap  hop&gt;)
+{
+	&lt;Cong  viec&gt;;
+}
+</code></pre>
+      </li>
+      <li><strong>do ... while</strong>: Ph&#xF9; h&#x1EE3;p v&#x1EDB;i suy ngh&#x129; t&#x1EF1; nhi&#xEA;n khi
+        thi&#x1EBF;t k&#x1EBF; thu&#x1EAD;t to&#xE1;n.</li>
+      <li><strong>while</strong>: kh&#x1EAF;c ph&#x1EE5;c m&#x1ED9;t s&#x1ED1; tr&#x1B0;&#x1EDD;ng h&#x1EE3;p l&#x1ED7;i
+        c&#x1EE7;a <strong>do ... while</strong>.</li>
+      <li><strong>for</strong>: C&#xE1;ch vi&#x1EBF;t ng&#x1EAF;n g&#x1ECD;n c&#x1EE7;a <strong>while</strong>,
+        s&#x1EED; d&#x1EE5;ng khi &#x111;i&#x1EC1;u ki&#x1EC7;n l&#x1EB7;p ph&#x1EE5; thu&#x1ED9;c v&#xE0;o bi&#x1EBF;n
+        l&#x1EB7;p v&#xE0; s&#x1ED1; l&#x1EA7;n l&#x1EB7;p c&#xF3; th&#x1EC3; bi&#x1EBF;t tr&#x1B0;&#x1EDB;c.</li>
+      <li><strong>foreach</strong>: duy&#x1EC7;t &#x111;&#x1ED1;i t&#x1B0;&#x1EE3;ng trong t&#x1EAD;p danh s&#xE1;ch.
+      </li>
+    </ul>
+    <h4 class="mume-header" id="5-function">5. Function</h4>
+
+    <ul>
+      <li>
+        <p>H&#xE0;m c&#xF3; th&#x1EC3; c&#xF3; gi&#xE1; tr&#x1ECB; tr&#x1EA3; v&#x1EC1; ho&#x1EB7;c kh&#xF4;ng.</p>
+      </li>
+      <li>
+        <p>H&#xE0;m kh&#xF4;ng c&#xF3; gi&#xE1; tr&#x1ECB; tr&#x1EA3; v&#x1EC1; &#x111;&#x1B0;&#x1EE3;c g&#x1ECD;i
+          l&#xE0; th&#x1EE7; t&#x1EE5;c (procedure).</p>
+      </li>
+      <li>
+        <p>Khai b&#xE1;o h&#xE0;m:</p>
+        <pre data-role="codeBlock" data-info="C#" class="language-c#"><code>&lt;kieu_tra_ve&gt; &lt;ten_ham&gt;(&lt;kieu_bien_1&gt; &lt;tham_so_1&gt;, ...)
+{
+  Noi_dung_ham;
+  [return &lt;gia_tri_tra_ve&gt;];
+}
+
+&lt;ten_ham&gt; (value1, value2);
+// &lt;tham_so_1&gt;: Tham so hinh thuc
+// value1, value2: Tham so thuc 
+</code></pre>
+      </li>
+      <li>
+        <p>&#x110;&#x1EB7;t t&#xEA;n h&#xE0;m n&#xEA;n d&#xF9;ng &#x111;&#x1ED9;ng t&#x1EEB;.</p>
+      </li>
+      <li>
+        <p>Tham tr&#x1ECB;, tham chi&#x1EBF;u:</p>
+        <ul>
+          <li><strong>Truy&#x1EC1;n tham tr&#x1ECB;</strong> (call by value):
+            <ul>
+              <li>Sao ch&#xE9;p gi&#xE1; tr&#x1ECB; c&#x1EE7;a <strong>&#x111;&#x1ED1;i s&#x1ED1;</strong> v&#xE0;o
+                <strong>tham s&#x1ED1; h&#xEC;nh th&#x1EE9;c</strong> c&#x1EE7;a h&#xE0;m. Sau khi tho&#xE1;t
+                kh&#x1ECF;i h&#xE0;m.</li>
+              <li><strong>&#x110;&#x1ED1;i s&#x1ED1;</strong> &#x111;&#x1B0;&#x1EE3;c truy&#x1EC1;n v&#xE0;o v&#x1EAB;n
+                gi&#x1EEF; nguy&#xEA;n gi&#xE1; tr&#x1ECB; g&#x1ED1;c (nh&#x1EEF;ng thay &#x111;&#x1ED5;i c&#x1EE7;a
+                tham s&#x1ED1; <strong>kh&#xF4;ng &#x1EA3;nh h&#x1B0;&#x1EDF;ng</strong> &#x111;&#x1EBF;n gi&#xE1;
+                tr&#x1ECB; c&#x1EE7;a &#x111;&#x1ED1;i s&#x1ED1;).</li>
+            </ul>
+          </li>
+          <li><strong>Truy&#x1EC1;n tham chi&#x1EBF;u</strong> (call by reference):
+            <ul>
+              <li>Sao ch&#xE9;p &#x111;&#x1ECB;a ch&#x1EC9; c&#x1EE7;a <strong>&#x111;&#x1ED1;i s&#x1ED1;</strong>
+                v&#xE0;o <strong>tham s&#x1ED1; h&#xEC;nh th&#x1EE9;c</strong>.</li>
+              <li>Nh&#x1EEF;ng thay &#x111;&#x1ED5;i &#x111;&#x1ED1;i v&#x1EDB;i <strong>tham s&#x1ED1;</strong>
+                s&#x1EBD; c&#xF3; t&#xE1;c d&#x1EE5;ng l&#xEA;n <strong>&#x111;&#x1ED1;i s&#x1ED1;</strong>.</li>
+              <li>S&#x1EED; d&#x1EE5;ng t&#x1EEB; kh&#xF3;a <code>ref</code> ho&#x1EB7;c <code>out</code>.</li>
+              <li>Tham s&#x1ED1; ki&#x1EC3;u &#x111;a tr&#x1ECB; (m&#x1EA3;ng, &#x111;&#x1ED1;i t&#x1B0;&#x1EE3;ng, ...)
+                m&#x1EB7;c &#x111;&#x1ECB;nh l&#xE0; truy&#x1EC1;n tham chi&#x1EBF;u (kh&#xF4;ng c&#x1EA7;n d&#xF9;ng
+                t&#x1EEB; kh&#xF3;a <code>ref</code> ho&#x1EB7;c <code>out</code>).</li>
+            </ul>
+          </li>
+          <li>S&#x1EF1; kh&#xE1;c bi&#x1EC7;t gi&#x1EEF;a <code>ref</code> v&#xE0; <code>out</code>:
+            <ul>
+              <li><code>ref</code> b&#x1EAF;t bu&#x1ED9;c ph&#x1EA3;i kh&#x1EDF;i t&#x1EA1;o gi&#xE1; tr&#x1ECB; cho
+                bi&#x1EBF;n tr&#x1B0;&#x1EDB;c khi v&#xE0;o h&#xE0;m.</li>
+              <li><code>out</code> b&#x1EAF;t bu&#x1ED9;c ph&#x1EA3;i g&#xE1;n gi&#xE1; tr&#x1ECB; cho bi&#x1EBF;n
+                tr&#x1B0;&#x1EDB;c khi tho&#xE1;t kh&#x1ECF;i h&#xE0;m.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <h4 class="mume-header" id="6-commonly-used-library">6. Commonly used library</h4>
+
+    <ul>
+      <li>
+        <p>Th&#x1B0; vi&#x1EC7;n nh&#x1EAD;p / xu&#x1EA5;t Console:</p>
+        <ul>
+          <li>Xu&#x1EA5;t th&#xF4;ng b&#xE1;o ra m&#xE0;n h&#xEC;nh console: <code>Console.WriteLine(...);</code>,
+            <code>Console.Write(...);</code>.</li>
+          <li>Nh&#x1EAD;p d&#x1EEF; li&#x1EC7;u t&#x1EEB; b&#xE0;n ph&#xED;m: <code>Console.ReadLine(...);</code>.</li>
+        </ul>
+      </li>
+      <li>
+        <p>Chuy&#x1EC3;n ki&#x1EC3;u d&#x1EEF; li&#x1EC7;u (Parse): <code>int.Parse(...);</code>,
+          <code>Convert.ToInt32();</code>.</p>
+      </li>
+      <li>
+        <p>To&#xE1;n h&#x1ECD;c (Math): <code>Math.PI</code>, <code>Math.Sqrt(x)</code>, <code>Math.Pow(x, y)</code>,
+          <code>Math.Min(x, y)</code>, <code>Math.Max(x, y)</code>, <code>Math.Round(5.674, 1)</code>,
+          <code>Math.Sin()</code>, <code>Math.Cos()</code>, ...</p>
+      </li>
+      <li>
+        <p>Ng&#x1EAB;u nhi&#xEA;n (random):</p>
+        <pre data-role="codeBlock" data-info="C#" class="language-c#"><code>  Random rd = new Random();
+  // [0...90]
+  int x = rd.Next(0, 100);
+  // [-50...101]
+  int z = rd.Next(-50, 102);
+  // [0...1)
+  double r = rd.NextDouble();
+</code></pre>
+      </li>
+      <li>
+        <p>Ng&#xE0;y th&#xE1;ng (DateTime):</p>
+        <pre data-role="codeBlock" data-info="C#" class="language-c#"><code>  DateTime birthday = new DateTime(2002, 09, 13);
+  Console.WriteLine(birthday.ToString(&quot;dd/MM/yyyy&quot;));
+
+  // Chuyen doi ve DateTime
+  DateTime d = DateTime.Parse(&quot;20/10/2022&quot;);
+</code></pre>
+      </li>
+    </ul>
+    <h4 class="mume-header" id="7-debug-in-c">7. Debug in C#</h4>
+
+    <ul>
+      <li>Debug &#x111;&#x1EC3; t&#xEC;m ra nguy&#xEA;n nh&#xE2;n d&#x1EAB;n &#x111;&#x1EBF;n c&#xE1;c l&#x1ED7;i
+        kh&#xE1;c nhau nh&#x1B0;: L&#x1ED7;i bi&#xEA;n d&#x1ECB;ch, l&#x1ED7;i l&#xFA;c th&#x1EF1;c thi, l&#x1ED7;i sai
+        logic, ...</li>
+      <li>C&#xE1;ch theo d&#xF5;i gi&#xE1; tr&#x1ECB; bi&#x1EBF;n khi g&#x1EE1; l&#x1ED7;i:
+        <ul>
+          <li><strong>C&#x1EED;a s&#x1ED5; Locals</strong>: t&#x1EF1; &#x111;&#x1ED9;ng li&#x1EC7;t k&#xEA; danh
+            s&#xE1;ch c&#xE1;c bi&#x1EBF;n c&#x1EE7;a method &#x111;ang th&#x1EF1;c thi.</li>
+          <li><strong>C&#x1EED;a s&#x1ED5; Watch</strong>: cho ph&#xE9;p nh&#x1EAD;p v&#xE0;o bi&#x1EBF;n ho&#x1EB7;c
+            bi&#x1EC3;u th&#x1EE9;c c&#x1EA7;n xem x&#xE9;t.</li>
+          <li><strong>C&#x1EED;a s&#x1ED5; Immediate</strong>: cho ph&#xE9;p th&#x1EF1;c hi&#x1EC7;n m&#x1ED9;t c&#xE2;u
+            l&#x1EC7;nh n&#xE0;o &#x111;&#xF3; ngo&#xE0;i &#x111;o&#x1EA1;n m&#xE3; &#x111;ang debug m&#xE0; kh&#xF4;ng
+            &#x1EA3;nh h&#x1B0;&#x1EDF;ng &#x111;&#x1EBF;n b&#x1B0;&#x1EDB;c debug hi&#x1EC7;n t&#x1EA1;i.</li>
+          <li><strong>C&#x1EED;a s&#x1ED5; Call Stack</strong>: cho ph&#xE9;p xem tr&#xEC;nh t&#x1EF1;
+            &#x111;&#x1B0;&#x1EE3;c g&#x1ECD;i c&#x1EE7;a c&#xE1;c ph&#x1B0;&#x1A1;ng th&#x1EE9;c sau khi
+            ph&#x1B0;&#x1A1;ng th&#x1EE9;c ch&#x1EE9;a d&#xF2;ng l&#x1EC7;nh hi&#x1EC7;n h&#xE0;nh th&#x1EF1;c
+            hi&#x1EC7;n xong.</li>
+        </ul>
+      </li>
+      <li>Th&#x1EF1;c thi d&#xF2;ng l&#x1EC7;nh khi g&#x1EE1; l&#x1ED7;i:
+        <ul>
+          <li><strong>Step Over</strong> (F10): th&#x1EF1;c hi&#x1EC7;n c&#xE1;c d&#xF2;ng l&#x1EC7;nh k&#x1EBF;
+            ti&#x1EBF;p m&#x1ED9;t c&#xE1;ch tu&#x1EA7;n t&#x1EF1;. Trong c&#xE1;c d&#xF2;ng l&#x1EC7;nh &#x111;i qua
+            n&#x1EBF;u g&#x1EB7;p m&#x1ED9;t method n&#xE0;o &#x111;&#xF3; th&#xEC; s&#x1EBD; th&#x1EF1;c thi to&#xE0;n
+            b&#x1ED9; ph&#x1B0;&#x1A1;ng th&#x1EE9;c nh&#x1B0; m&#x1ED9;t d&#xF2;ng l&#x1EC7;nh th&#xF4;ng
+            th&#x1B0;&#x1EDD;ng (<em>kh&#xF4;ng &#x111;i s&#xE2;u v&#xE0;o method</em>).</li>
+          <li><strong>Step Info</strong> (F11): Gi&#x1ED1;ng <strong>Step Over</strong> nh&#x1B0;ng khi g&#x1EB7;p
+            method s&#x1EBD; ch&#x1EA1;y t&#x1EEB;ng d&#xF2;ngs l&#x1EC7;nh trong method &#x111;&#xF3;.</li>
+          <li><strong>Step Out</strong> (Shift + F5): Th&#x1EF1;c hi&#x1EC7;n t&#x1EA5;t c&#x1EA3; c&#xE1;c l&#x1EC7;nh
+            c&#xF2;n l&#x1EA1;i trong method khi s&#x1EED; d&#x1EE5;ng <strong>Step Info</strong>.</li>
+        </ul>
+      </li>
+    </ul>
+    <h4 class="mume-header" id="8-x%E1%BB%AD-l%C3%BD-bi%E1%BB%87t-l%E1%BB%87">8. X&#x1EED; l&#xFD; bi&#x1EC7;t l&#x1EC7;
+    </h4>
+
+    <ul>
+      <li>Ki&#x1EC3;m so&#xE1;t c&#xE1;c bi&#x1EC7;t l&#x1EC7; gi&#xFA;p cho ph&#x1EA7;n m&#x1EC1;m ti&#x1EBF;p
+        t&#x1EE5;c ho&#x1EA1;t &#x111;&#x1ED9;ng n&#x1EBF;u l&#x1ED7;i x&#x1EA3;y ra (l&#x1ED7;i ph&#xE1;t sinh trong
+        coding, ApplicationException, SystemException) ho&#x1EB7;c c&#x169;ng &#x111;&#x1B0;a ra c&#xE1;c g&#x1EE3;i
+        &#xFD; b&#xEA;n ph&#xED;a User Problem.</li>
+      <li>C&#xE1;c c&#x1EA5;p &#x111;&#x1ED9; l&#x1ED7;i th&#x1B0;&#x1EDD;ng g&#x1EB7;p:
+        <ul>
+          <li>L&#x1ED7;i bi&#xEA;n d&#x1ECB;ch</li>
+          <li>L&#x1ED7;i runtime exception</li>
+          <li>Logic exception - sai nghi&#x1EC7;p v&#x1EE5; y&#xEA;u c&#x1EA7;u.</li>
+        </ul>
+      </li>
+      <li><strong>Unchecked error</strong>: C&#xF3; l&#x1ED7;i ko quan t&#xE2;m v&#xE0; t&#x1EAF;t ngang ph&#x1EA7;n
+        m&#x1EC1;m.</li>
+      <li><strong>Checked error</strong>: C&#xF3; l&#x1ED7;i xu&#x1EA5;t th&#xF4;ng b&#xE1;o l&#x1ED7;i nh&#x1B0;ng
+        kh&#xF4;ng t&#x1EAF;t ngang ph&#x1EA7;n m&#x1EC1;m.</li>
+      <li><strong>throw</strong> statement: Th&#x1EA5;y l&#x1ED7;i nh&#x1B0;ng kh&#xF4;ng x&#x1EED; l&#xFD; lu&#xF4;n
+        m&#xE0; n&#xE9;m &#x111;i m&#x1ED9;t n&#x1A1;i kh&#xE1;c (th&#x1B0;&#x1EDD;ng s&#x1EED; d&#x1EE5;ng trong
+        x&#x1EED; l&#xFD; file, l&#xE0;m th&#x1B0; vi&#x1EC7;n).</li>
+      <li><strong>finally</strong>: Lu&#xF4;n lu&#xF4;n &#x111;&#x1B0;&#x1EE3;c th&#x1EF1;c hi&#x1EC7;n.</li>
+      <li>C&#xF3; th&#x1EC3; t&#x1EF1; &#x111;&#x1ECB;nh ngh&#x129;a m&#x1ED9;t class Exception k&#x1EBF; th&#x1EEB;a
+        t&#x1EEB; <code>ApplicationException</code> &#x111;&#x1EC3; c&#xF3; th&#x1EC3; t&#xE1;i s&#x1EED; d&#x1EE5;ng
+        code.</li>
+      <li><strong>Error provider</strong>: Ki&#x1EC3;m so&#xE1;t bi&#x1EC7;t l&#x1EC7; d&#x1EF1;a tr&#xEA;n nh&#x1EAD;p
+        li&#x1EC7;u c&#x1EE7;a ng&#x1B0;&#x1EDD;i d&#xF9;ng.</li>
+    </ul>
+    <h4 class="mume-header" id="9-string">9. String</h4>
+
+    <h5 class="mume-header" id="ki%E1%BB%83u-char">Ki&#x1EC3;u char</h5>
+
+    <ul>
+      <li>
+        <p>L&#x1B0;u tr&#x1EEF; k&#xFD; t&#x1EF1; Unicode 16-bit.</p>
+      </li>
+      <li>
+        <p>Ki&#x1EC3;u trong .NET framework: <code>System.Char</code>.</p>
+      </li>
+      <li>
+        <p>C&#xE1;ch chuy&#x1EC3;n t&#x1EEB; int =&gt; char:
+          <code>char chr = (char)65 // K&#xFD; t&#x1EF1; &apos;A&apos;</code>.</p>
+      </li>
+      <li>
+        <p>Chuy&#x1EC3;n ki&#x1EC3;u:</p>
+        <ul>
+          <li>char.Parse(string)</li>
+          <li>Convert.ToChar(string)</li>
+          <li>Ch&#xFD; &#xFD;: Chu&#x1ED7;i &#x111;&#x1B0;a v&#xE0;o ch&#x1EC9; c&#xF3; 1 k&#xFD; t&#x1EF1;, n&#x1EBF;u
+            nhi&#x1EC1;u k&#xFD; t&#x1EF1; =&gt; error.</li>
+        </ul>
+      </li>
+      <li>
+        <p>So s&#xE1;nh ki&#x1EC3;u:</p>
+        <ul>
+          <li>
+            <p>So s&#xE1;nh 2 k&#xFD; t&#x1EF1;, tr&#x1EA3; v&#x1EC1; hi&#x1EC7;u s&#x1ED1; gi&#x1EEF;a 2 k&#xFD;
+              t&#x1EF1;. Ex:</p>
+            <pre data-role="codeBlock" data-info="C#" class="language-c#"><code>char chr1 = &apos;A&apos;;
+char chr2 = &apos;B&apos;;
+
+Console.WriteLine(chr1.CompareTo(chr2)); // -1 (chr1 - chr2)
+</code></pre>
+          </li>
+          <li>
+            <p>So s&#xE1;nh tr&#x1EA3; v&#x1EC1; boolean (return <strong>true</strong> n&#x1EBF;u 2 k&#xFD; t&#x1EF1;
+              <strong>b&#x1EB1;ng nhau</strong>, <strong>false</strong> n&#x1EBF;u <strong>kh&#xF4;ng
+                b&#x1EB1;ng</strong>). Ex:</p>
+            <pre data-role="codeBlock" data-info="C#" class="language-c#"><code>char ch1 = &apos;A&apos;;
+char ch2 = (char)65;
+char ch3 = &apos;B&apos;;
+Console.WriteLine(ch1.Equals(ch2)); // true
+Console.WriteLine(ch1.Equals(ch3)); // false
+</code></pre>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>Ki&#x1EC3;m tra <strong>char</strong>:</p>
+        <ul>
+          <li><code>Char.IsDigit(ch)</code>: <strong>True</strong> n&#x1EBF;u <strong>ch</strong> l&#xE0; ch&#x1EEF;
+            s&#x1ED1;.</li>
+          <li><code>Char.IsLetter(ch)</code>: <strong>True</strong> n&#x1EBF;u <strong>ch</strong> l&#xE0; ch&#x1EEF;
+            c&#xE1;i.</li>
+          <li><code>Char.IsNumeric(ch)</code>: <strong>True</strong> n&#x1EBF;u <strong>ch</strong> l&#xE0; ch&#x1EEF;
+            s&#x1ED1; Unicode.</li>
+          <li><code>Char.IsWhiteSpace(ch)</code>: <strong>True</strong> n&#x1EBF;u <strong>ch</strong> l&#xE0;
+            kho&#x1EA3;ng tr&#x1EAF;ng.</li>
+          <li><code>Char.IsLower(ch)</code>: <strong>True</strong> n&#x1EBF;u <strong>ch</strong> l&#xE0; ch&#x1EEF;
+            th&#x1B0;&#x1EDD;ng.</li>
+          <li><code>Char.IsUpper(ch)</code>: <strong>True</strong> n&#x1EBF;u <strong>ch</strong> l&#xE0; ch&#x1EEF;
+            hoa.</li>
+        </ul>
+      </li>
+      <li>
+        <p>Thao t&#xE1;c v&#x1EDB;i <strong>char</strong>:</p>
+        <ul>
+          <li><code>Char.ToLower(char)</code>: Chuy&#x1EC3;n k&#xFD; t&#x1EF1; ch&#x1EEF; hoa sang ch&#x1EEF;
+            th&#x1B0;&#x1EDD;ng.</li>
+          <li><code>Char.ToUpper(char)</code>: Chuy&#x1EC3;n k&#xFD; t&#x1EF1; ch&#x1EEF; th&#x1B0;&#x1EDD;ng sang
+            ch&#x1EEF; hoa.</li>
+        </ul>
+      </li>
+    </ul>
+    <h5 class="mume-header" id="ki%E1%BB%83u-string">Ki&#x1EC3;u string</h5>
+
+    <ul>
+      <li><strong>string</strong> l&#xE0; m&#x1EA3;ng c&#xE1;c k&#xFD; t&#x1EF1; thu&#x1ED9;c ki&#x1EC3;u
+        <strong>char</strong></li>
+      <li>Ki&#x1EC3;u trong .NET framework: <code>System.string</code>.</li>
+      <li>Escape character (k&#xFD; t&#x1EF1; &#x111;&#x1EB7;c bi&#x1EC7;t):
+        <ul>
+          <li>Tab: <code>&quot;\t&quot;</code></li>
+          <li>Xu&#x1ED1;ng h&#xE0;ng: <code>&quot;\n&quot;</code></li>
+          <li>Backslash: <code>&quot;\\&quot;</code></li>
+        </ul>
+      </li>
+      <li>Khai b&#xE1;o nguy&#xEA;n v&#x103;n: th&#xEA;m d&#x1EA5;u &apos;@&apos;. Ex:
+        <code>string str2 = @&quot;C:\Windows&quot;;</code></li>
+      <li>Chuy&#x1EC3;n &#x111;&#x1ED5;i sang <strong>string</strong>:
+        <ul>
+          <li><code>ToString()</code>: Tr&#x1EA3; v&#x1EC1; chu&#x1ED7;i &#x1EE9;ng v&#x1EDB;i n&#x1ED9;i dung
+            c&#x1EE7;a bi&#x1EBF;n.</li>
+          <li><code>Convert.ToString(obj)</code>.</li>
+        </ul>
+      </li>
+      <li>Thao t&#xE1;c v&#x1EDB;i <strong>string</strong>:
+        <ul>
+          <li>
+            <p><code>ToCharArray()</code> ho&#x1EB7;c <code>[]</code>: Return v&#x1EC1; m&#x1EA3;ng c&#xE1;c k&#xFD;
+              t&#x1EF1; trong chu&#x1ED7;i. Ex:</p>
+            <pre data-role="codeBlock" data-info="C#" class="language-c#"><code>string str1 = &quot;Hello&quot;;
+// Return k&#xFD; t&#x1EF1; e
+char ch1 = str1.ToCharArray()[1];
+Console.WriteLine(ch1); // e
+</code></pre>
+          </li>
+          <li>
+            <p><code>Lenght</code>: Return s&#x1ED1; k&#xFD; t&#x1EF1; trong chu&#x1ED7;i. Ex:
+              <code>varName.Length;</code>.</p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <h5 class="mume-header" id="c%C3%A1c-h%C3%A0m-x%E1%BB%AD-l%C3%BD-string">C&#xE1;c h&#xE0;m x&#x1EED; l&#xFD; string
+    </h5>
+
+    <ul>
+      <li>
+        <p><strong>CompareTo</strong>: So s&#xE1;nh chu&#x1ED7;i &#x111;ang x&#xE9;t v&#x1EDB;i chu&#x1ED7;i
+          <em>value</em>. Hai chu&#x1ED7;i b&#x1EB1;ng nhau (return 0), l&#x1EDB;n h&#x1A1;n (return 1), nh&#x1ECF;
+          h&#x1A1;n (return -1). Ex:</p>
+        <pre data-role="codeBlock" data-info="C#" class="language-c#"><code>string s = &quot;Hello&quot;;
+int i = s.CompareTo(&quot;hello&quot;); // i = 1
+int i = s.CompareTo(&quot;Hello&quot;); // i = 0
+</code></pre>
+      </li>
+      <li>
+        <p><strong>Constains</strong>: Tr&#x1EA3; v&#x1EC1; <strong>True</strong> n&#x1EBF;u trong chu&#x1ED7;i
+          &#x111;ang x&#xE9;t c&#xF3; ch&#x1EE9;a chu&#x1ED7;i <em>value</em>, tr&#x1EA3; v&#x1EC1;
+          <strong>False</strong> n&#x1EBF;u ng&#x1B0;&#x1EE3;c l&#x1EA1;i. Ex:</p>
+        <pre data-role="codeBlock" data-info="C#" class="language-c#"><code>string s = &quot;Hello&quot;;
+bool i = s.Constains(&quot;lo&quot;);  
+</code></pre>
+      </li>
+      <li>
+        <p><strong>CopyTo</strong>: Copy k&#xFD; t&#x1EF1; t&#xF9;y &#xFD; sang m&#x1ED9;t m&#x1EA3;ng kh&#xE1;c. Ex:
+        </p>
+        <pre data-role="codeBlock" data-info="C#" class="language-c#"><code>string s = &quot;hello&quot;;
+char[] ch = new char[5];
+char[0] = &apos;a&apos;;
+char[1] = &apos;b&apos;;
+s.CopyTo(1, ch, 2, 3);
+Console.WriteLine(ch);  // &quot;abello&quot;
+</code></pre>
+      </li>
+      <li>
+        <p><strong>EndsWith()</strong>: Return <strong>true</strong> n&#x1EBF;u chu&#x1ED7;i &#x111;&#x1B0;&#x1EE3;c
+          ch&#x1EC9; &#x111;&#x1ECB;nh l&#xE0; <strong>k&#x1EBF;t th&#xFA;c</strong> c&#x1EE7;a chu&#x1ED7;i &#x111;ang
+          x&#xE9;t. Ex:</p>
+        <pre data-role="codeBlock" data-info="C#" class="language-c#"><code>string s = &quot;hello&quot;;
+bool result = s.EndsWidth(&quot;lo&quot;);  // true
+</code></pre>
+      </li>
+      <li>
+        <p><strong>StartsWith(string)</strong>: Ng&#x1B0;&#x1EE3;c l&#x1EA1;i <strong>EndsWith()</strong>.</p>
+      </li>
+      <li>
+        <p><strong>string.Format()</strong>: Tr&#x1EA3; v&#x1EC1; chu&#x1ED7;i &#x111;&#x1B0;&#x1EE3;c x&#xE2;y
+          d&#x1EF1;ng t&#x1EEB; <code>{&lt;value i&gt;: &lt;kieu format&gt;}</code>. Ex:</p>
+        <pre data-role="codeBlock" data-info="C#" class="language-c#"><code>string s = &quot;hello&quot;;
+int n = 9;
+s = string.Format(&quot;Gi&#xE1; tr&#x1ECB; n = {0:N}, c&#x103;n b&#x1EAD;c 2 l&#xE0;: {1:N}&quot;, n, Math.Sqrt(n));
+Console.WriteLine(s); // Gi&#xE1; tr&#x1ECB; n = 9, c&#x103;n b&#x1EAD;c 2 l&#xE0;: 3
+s = string.Format(&quot;Gi&#xE1; s&#x1EA3;n ph&#x1EA9;m l&#xE0;: {0:C}&quot;, 200);
+Console.WriteLine(s); // Gi&#xE1; s&#x1EA3;n ph&#x1EA9;m l&#xE0;: $200
+</code></pre>
+      </li>
+      <li>
+        <p><strong>Insert(index, string)</strong>: Ch&#xE8;n m&#x1ED9;t chu&#x1ED7;i v&#xE0;o v&#x1ECB; tr&#xED;
+          &#x111;&#x1B0;&#x1EE3;c ch&#x1EC9; &#x111;&#x1ECB;nh. Ex:</p>
+        <pre data-role="codeBlock" data-info="C#" class="language-c#"><code>string s = &quot;hello&quot;;
+string val = &quot;everybody&quot;;
+s = s.Insert(5, val);
+Console.WriteLine(s);
+</code></pre>
+      </li>
+      <li>
+        <p><strong>IndexOf(character/string)</strong>: Tr&#x1EA3; v&#x1EC1; v&#x1ECB; tr&#xED; xu&#x1EA5;t hi&#x1EC7;n
+          &#x111;&#x1EA7;u ti&#xEA;n c&#x1EE7;a k&#xFD; t&#x1EF1; ho&#x1EB7;c chu&#x1ED7;i. Return -1 n&#x1EBF;u
+          kh&#xF4;ng t&#xEC;m th&#x1EA5;y.</p>
+      </li>
+      <li>
+        <p><strong>LastIndexOf(character/string)</strong>: Tr&#x1EA3; v&#x1EC1; v&#x1ECB; tr&#xED; xu&#x1EA5;t
+          hi&#x1EC7;n cu&#x1ED1;i c&#xF9;ng.</p>
+      </li>
+      <li>
+        <p><strong>PadLeft(width, character)</strong>: Tr&#x1EA3; v&#x1EC1; chu&#x1ED7;i v&#x1EDB;i s&#x1ED1; k&#xFD;
+          t&#x1EF1; &#x111;&#x1B0;&#x1EE3;c ch&#x1EC9; &#x111;&#x1ECB;nh, chu&#x1ED7;i ban &#x111;&#x1EA7;u s&#x1EBD;
+          &#x111;&#x1B0;&#x1EE3;c &#x111;&#x1EB7;t b&#xEA;n ph&#x1EA3;i. Ex:</p>
+        <pre data-role="codeBlock" data-info="C#" class="language-c#"><code>string s = &quot;Hello!&quot;;
+string s_leftAligned = s.PadLeft(10, &quot;*&quot;);
+Console.WriteLine(s_leftAligned); // &quot;*****Hello!&quot;
+</code></pre>
+      </li>
+      <li>
+        <p><strong>PadRight(width, character)</strong>: Ng&#x1B0;&#x1EE3;c l&#x1EA1;i v&#x1EDB;i
+          <strong>PadLeft()</strong>.</p>
+      </li>
+      <li>
+        <p><strong>Remove(startIndex, count)</strong>: X&#xF3;a <em>count</em> k&#xFD; t&#x1EF1; kh&#x1ECF;i
+          chu&#x1ED7;i ban &#x111;&#x1EA7;u, b&#x1EAF;t &#x111;&#x1EA7;u t&#x1EEB; v&#x1ECB; tr&#xED;
+          <em>startIndex</em>. Ex:</p>
+        <pre data-role="codeBlock" data-info="C#" class="language-c#"><code>string s = &quot;Hello!&quot;;
+s = s.Remove(4, 3); // &quot;Hell&quot;
+</code></pre>
+      </li>
+      <li>
+        <p><strong>Replace(oldStr, newStr)</strong>: Thay th&#x1EBF; chu&#x1ED7;i con <em>oldStr</em> ban
+          &#x111;&#x1EA7;u b&#x1EB1;ng chu&#x1ED7;i b&#x1EB1;ng chu&#x1ED7;i con m&#x1EDB;i <em>newStr</em>.</p>
+        <pre data-role="codeBlock" data-info="C#" class="language-c#"><code>string s = &quot;Hello!&quot;;
+s = s.Replace(&quot;ll&quot;, &quot;r&quot;); // &quot;Hero&quot;
+</code></pre>
+      </li>
+      <li>
+        <p><strong>Substring(startIdx, count)</strong>: L&#x1EA5;y ra chu&#x1ED7;i con t&#x1EEB; b&#xEA;n trong
+          chu&#x1ED7;i g&#x1ED1;c v&#x1EDB;i v&#x1ECB; tr&#xED; b&#x1EAF;t &#x111;&#x1EA7;u <em>startIdx</em> v&#xE0;
+          s&#x1ED1; ph&#x1EA7;n t&#x1EED; &#x111;&#x1B0;&#x1EE3;c ch&#x1EC9; &#x111;&#x1ECB;nh <em>count</em>. Ex:</p>
+        <pre data-role="codeBlock" data-info="C#" class="language-c#"><code>string s = &quot;Hello!&quot;;
+s = s.Substring(1, 3); // &quot;ell&quot;;
+</code></pre>
+      </li>
+      <li>
+        <p><strong>ToLower()</strong>: Return v&#x1EC1; chu&#x1ED7;i c&#xF3; ki&#x1EC3;u ch&#x1EEF; th&#x1B0;&#x1EDD;ng
+          t&#x1EEB; chu&#x1ED7;i ban &#x111;&#x1EA7;u.</p>
+      </li>
+      <li>
+        <p><strong>ToUpper()</strong>: Return ki&#x1EC3;u ch&#x1EEF; hoa.</p>
+      </li>
+      <li>
+        <p><strong>Trim()</strong>: B&#x1ECF; kho&#x1EA3;ng tr&#x1EAF;ng &#x1EDF; &#x111;&#x1EA7;u v&#xE0; cu&#x1ED1;i
+          m&#x1ED9;t chu&#x1ED7;i.</p>
+      </li>
+      <li>
+        <p><strong>TrimEnd()</strong>: Ch&#x1EC9; b&#x1ECF; kho&#x1EA3;ng tr&#x1EAF;ng &#x1EDF; cu&#x1ED1;i.</p>
+      </li>
+      <li>
+        <p><strong>TrimStart()</strong>: Ch&#x1EC9; b&#x1ECF; kho&#x1EA3;ng tr&#x1EAF;ng &#x1EDF; &#x111;&#x1EA7;u.</p>
+      </li>
+      <li>
+        <p><strong>Split(separator)</strong>: Tr&#x1EA3; v&#x1EC1; m&#x1EA3;ng c&#xE1;c chu&#x1ED7;i con
+          &#x111;&#x1B0;&#x1EE3;c ph&#xE2;n c&#xE1;ch b&#x1EDF;i <em>Separator</em>. Ex:</p>
+        <pre data-role="codeBlock" data-info="C#" class="language-c#"><code>string str = &quot;mot,hai,ba&quot;;
+string[] str2 = str.Split(&apos;,&apos;);
+</code></pre>
+      </li>
+      <li>
+        <p><strong>Join(separator, value)</strong>: N&#x1ED1;i c&#xE1;c chu&#x1ED7;i trong m&#x1EA3;ng <em>value</em>
+          th&#xE0;nh 1 chu&#x1ED7;i, ph&#xE2;n c&#xE1;ch b&#x1EDF;i <em>separator</em>.</p>
+        <pre data-role="codeBlock" data-info="C#" class="language-c#"><code>string[] array = new string[3];
+array[0] = &quot;mot&quot;;
+array[1] = &quot;hai&quot;;
+array[3] = &quot;ba&quot;;
+string str = string.join(&quot;*&quot;, array);
+</code></pre>
+      </li>
+    </ul>
+    <h4 class="mume-header" id="10-array">10. Array</h4>
+
+    <ul>
+      <li>Khai b&#xE1;o m&#x1EA3;ng: <code>DataType[] arrayName;</code>.</li>
+      <li>Kh&#x1EDF;i t&#x1EA1;o m&#x1EA3;ng: <code>arrayName = new DataType[so_phan_tu];</code>.</li>
+      <li>Kh&#x1EDF;i t&#x1EA1;o v&#xE0; g&#xE1;n lu&#xF4;n gi&#xE1; tr&#x1ECB; cho m&#x1EA3;ng:
+        <code>arrName = new DataType[3]{5, 6, 7};</code>.</li>
+      <li>X&#xE1;c &#x111;&#x1ECB;nh s&#x1ED1; ph&#x1EA7;n t&#x1EED; c&#x1EE7;a m&#x1EA3;ng:
+        <code>arrName.Length</code>.</li>
+      <li>Kh&#xF4;ng n&#xEA;n duy&#x1EC7;t m&#x1EA3;ng b&#x1EB1;ng <strong>foreach</strong> khi:
+        <ul>
+          <li>C&#x1EA7;n duy&#x1EC7;t m&#x1ED9;t ph&#x1EA7;n trong m&#x1EA3;ng (v&#xED; d&#x1EE5; duy&#x1EC7;t t&#x1EEB;
+            ph&#x1EA7;n t&#x1EED; t2 =&gt; t10).</li>
+          <li></li>
+        </ul>
+      </li>
+    </ul>
+
+  </div>
+</body>
+
+</html>
